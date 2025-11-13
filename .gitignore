@@ -1,0 +1,84 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+instance/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+dist/
+build/
+*.egg-info/
+.eggs/
+.local/
+*.sqlite3
+data.db
+*.db
+
+# Virtual environment folders (very important)
+.venv/
+venv/
+ENV/
+env/
+
+# Node / frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnp.*
+.pnp.js
+
+# Build artifacts
+frontend/build/
+frontend/dist/
+dist/
+build/
+
+# VS Code
+.vscode/
+.history/
+
+# Mac / Windows / Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.orig
+
+# log files
+*.log
+
+# secrets (don't commit keys)
+*.pem
+*.key
+keys/              # if you persist generated keys locally, don't push
+secret-*.json
+.env
+.env.local
+.env.*.local
+
+# uploads / runtime files
+backend/uploads/
+backend/data.db
+
+# Optional Python packaging
+*.egg
+*.egg-info
+
+# Coverage / test artifacts
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+junit.xml
