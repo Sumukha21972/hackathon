@@ -1,0 +1,167 @@
+:root{
+  --vx-blue:#2b6ef6;
+  --vx-blue-2:#1e61d6;
+  --vx-light:#f6fbff;
+  --vx-card:#ffffff;
+  --vx-muted:#6b7280;
+}
+
+/* Page shell */
+.vx-login-page {
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #0f172a;
+  animation: bgPulse 12s ease-in-out infinite alternate;
+}
+@keyframes bgPulse { from { filter: brightness(0.92); } to { filter: brightness(1.02); } }
+
+/* top nav */
+.vx-topbar {
+  background: linear-gradient(90deg,var(--vx-blue),#4a77ff);
+  padding: 14px 24px;
+  box-shadow: 0 2px 8px rgba(12,24,50,0.08);
+}
+.vx-topbar-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+.vx-logo-text { color:white; font-weight:700; font-size:26px; letter-spacing:-0.6px; }
+.vx-logo-text .vx-x { color:#e6f0ff; font-weight:800; margin-left:4px; }
+.vx-nav a { color:rgba(255,255,255,0.92); margin-left:20px; cursor:pointer; text-decoration:none; opacity:0.95 }
+.vx-nav a.active { border-bottom:3px solid rgba(255,255,255,0.95); padding-bottom:6px; }
+
+/* main area */
+.vx-main { display:flex; justify-content:center; padding:48px 16px; }
+.vx-hero { width:100%; max-width:1200px; }
+
+/* hero card */
+.vx-hero-card { display:flex; gap:22px; background: transparent; position:relative; }
+
+/* left big panel */
+.vx-hero-left {
+  background: linear-gradient(180deg,#ffffffcc 0%, #f8fbffcc 100%);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(16,24,40,0.06);
+  flex: 1 1 68%;
+  padding: 36px;
+  padding-bottom: 120px; /* increased bottom padding to make room for icon cluster */
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:320px;
+  backdrop-filter: blur(6px);
+  position:relative;  /* needed for absolute-position icon cluster inside */
+  overflow: visible;  /* allow icons to show but we create enough inner padding so they're not cut */
+}
+
+/* headline */
+.vx-hero-left h1 {
+  font-size:36px;
+  margin: 6px 0 16px 0;
+  color: #0b254a;
+  line-height:1.05;
+  font-weight:700;
+}
+
+/* description */
+.vx-hero-desc { color: var(--vx-muted); margin-top:8px; font-size:14px; }
+
+/* ICON CLUSTER (bottom-left inside hero-left) */
+/* Positioned relative to the hero-left box so it won't be clipped by outer container */
+.vx-icon-cluster {
+  position: absolute;
+  left: 28px;               /* distance from left edge of hero-left */
+  bottom: 22px;             /* sits above the increased padding-bottom */
+  display:flex;
+  gap:12px;
+  align-items:center;
+  z-index: 30;              /* on top of hero card */
+  pointer-events: none;     /* decorative only; prevents accidental clicks */
+}
+
+/* each icon wrapper */
+.vx-icon-item { display:flex; align-items:center; justify-content:center; }
+
+/* frame: slightly smaller and tighter than before to avoid crowding */
+.vx-icon-frame {
+  width:64px;
+  height:64px;
+  border-radius:12px;
+  background: linear-gradient(180deg,#f7fbff,#ffffff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 10px 26px rgba(30,97,214,0.06);
+  border: 1px solid rgba(15,60,120,0.04);
+  padding:6px;              /* inner breathing room for icons */
+}
+
+/* adjust svg inside frames to scale nicely */
+.vx-icon-frame svg { width: 46px; height:46px; }
+
+/* PROFILE floating icon on the right edge between left and right panels */
+/* Move it slightly back and reduce overlap so it no longer collides with hero card corners */
+.vx-profile-floating {
+  position: absolute;
+  right: -36px;         /* less overlap; ensures visibility */
+  top: 50%;
+  transform: translateY(-50%);
+  width:82px;
+  height:82px;
+  border-radius:12px;
+  background: linear-gradient(180deg,#eef7ff,#ffffff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 14px 40px rgba(15,40,90,0.08);
+  border: 1px solid rgba(190,220,255,0.7);
+  z-index: 25;
+}
+
+/* right panel / login card */
+.vx-hero-right { width:360px; align-self:stretch; position:relative; }
+.vx-login-card {
+  background: linear-gradient(180deg,#e9f2ffdd,#dff0ffdd);
+  padding:22px;
+  border-radius:10px;
+  box-shadow: 0 8px 30px rgba(16,24,40,0.08);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  height:100%;
+  z-index: 10;
+}
+
+/* lock header */
+.vx-lock-header { display:flex; gap:12px; align-items:center; justify-content:center; flex-direction:column; margin-bottom:8px; }
+.vx-lock-header h3 { margin:0; color:#11305f; font-size:20px; font-weight:700; }
+
+/* form */
+.vx-login-form { display:flex; flex-direction:column; gap:10px; }
+.vx-label { font-size:13px; color:#294060; margin-bottom:4px; }
+.vx-input { padding:11px 12px; border-radius:8px; border:1px solid #cfe2ff; background:white; outline:none; font-size:14px; }
+.vx-input:focus { box-shadow:0 8px 20px rgba(46,117,255,0.08); border-color:var(--vx-blue-2); }
+
+/* button */
+.vx-btn {
+  margin-top:6px;
+  padding:10px 12px;
+  border-radius:8px;
+  background:linear-gradient(90deg,var(--vx-blue),var(--vx-blue-2));
+  color:white;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(43,110,246,0.18);
+}
+
+/* forgot link */
+.vx-forgot { text-align:center; margin-top:6px; }
+.vx-forgot a { color: #294060; font-size:13px; text-decoration:none; }
+
+/* responsiveness */
+/* On small screens, hide the floating profile to avoid layout issues */
+@media (max-width: 980px) {
+  .vx-hero-card { flex-direction:column; }
+  .vx-hero-right { width:100%; }
+  .vx-profile-floating { display:none; }
+  .vx-icon-cluster { left: 18px; bottom: 18px; gap:10px; }
+  .vx-icon-frame { width:56px; height:56px; padding:5px; }
+}
